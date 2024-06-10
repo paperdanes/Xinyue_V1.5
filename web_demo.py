@@ -18,10 +18,10 @@ logger = logging.get_logger(__name__)
 
 # st.set_option('server.address', '0.0.0.0')
 # st.set_option('server.port', 7860)
-
-if not os.path.exists("model") or not os.listdir("model"):
-    os.makedirs("model")
-    download(model_repo='ajupyter/EmoLLM_aiwei',
+#
+# if not os.path.exists("model") or not os.listdir("model"):
+# os.makedirs("model")
+download(model_repo='ajupyter/EmoLLM_aiwei',
              output='model')
 
 
