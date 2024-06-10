@@ -16,8 +16,8 @@ from openxlab.model import download
 
 logger = logging.get_logger(__name__)
 
-st.set_option('server.address', '0.0.0.0')
-st.set_option('server.port', 7860)
+# st.set_option('server.address', '0.0.0.0')
+# st.set_option('server.port', 7860)
 
 if not os.path.isdir("model"):
     print("[ERROR] not find model dir")
