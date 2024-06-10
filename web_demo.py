@@ -19,10 +19,12 @@ logger = logging.get_logger(__name__)
 # st.set_option('server.address', '0.0.0.0')
 # st.set_option('server.port', 7860)
 
-if not os.path.isdir("model"):
-    print("[ERROR] not find model dir")
-    exit(0)
+download(model_repo='ajupyter/EmoLLM_aiwei',
+        output='model')
 
+# base_path = './model'
+# os.system(f'git clone https://code.openxlab.org.cn/ajupyter/EmoLLM_aiwei.git {base_path}')
+# os.system(f'cd {base_path} && git lfs pull')
 
 @dataclass
 class GenerationConfig:
@@ -158,9 +160,7 @@ def on_btn_click():
 @st.cache_resource
 def load_model():
 
-    base_path = './model'
-    os.system(f'git clone https://code.openxlab.org.cn/ajupyter/EmoLLM_aiwei.git {base_path}')
-    os.system(f'cd {base_path} && git lfs pull')
+
 
     model = (
         AutoModelForCausalLM.from_pretrained("model", trust_remote_code=True)
