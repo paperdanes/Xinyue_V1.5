@@ -21,13 +21,10 @@ logger = logging.get_logger(__name__)
 #
 # if not os.path.exists("model") or not os.listdir("model"):
 # os.makedirs("model")
-download(model_repo='ajupyter/EmoLLM_aiwei',
-             output='model')
 
+# download(model_repo='ajupyter/EmoLLM_aiwei',
+#              output='model')
 
-# base_path = './model'
-# os.system(f'git clone https://code.openxlab.org.cn/ajupyter/EmoLLM_aiwei.git {base_path}')
-# os.system(f'cd {base_path} && git lfs pull')
 
 @dataclass
 class GenerationConfig:
@@ -163,7 +160,9 @@ def on_btn_click():
 @st.cache_resource
 def load_model():
 
-
+    base_path = './model'
+    os.system(f'git clone https://code.openxlab.org.cn/ajupyter/EmoLLM_aiwei.git {base_path}')
+    os.system(f'cd {base_path} && git lfs pull')
 
     model = (
         AutoModelForCausalLM.from_pretrained("model", trust_remote_code=True)
